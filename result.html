@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SpotextResult</title>
+    <style>
+         body{
+            background: linear-gradient(270deg, #000000, #38703d, #4d9559);
+    color: white;
+    text-align: center;
+    margin-top: 3vw;
+    padding: 1vw;
+    font-size: 2vw;
+         }
+         #resultpage h1{
+            font-family: 'Permanent Marker', cursive;
+    font-size: 90px;
+    line-height: 1;
+    color: white;
+    margin: 0 0 45px;
+         }
+         .para{
+            font-size: 20px;
+            
+         }
+         .pred{
+            font-weight: 800;
+            
+            
+         }
+    </style>
+</head>
+<body id="resultpage">
+    <div class="text-img">
+        <img src="{{ url_for('static', filename='OIG2.png') }}">
+    </div>
+    <h1>SPOTEXT</h1>
+    <p class="pred">Prediction Result: {{ predictions }}</p>
+    <p class="para">Input:{{output}}</p>
+</body>
+</html>

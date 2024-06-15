@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPOTEXT</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"rel="stylesheet">
+    <link rel="preconnect" href="https://fonts-googleapis.com">
+    <link rel="preconnect" href="https://fonts•gstatic.com" crossorigin>
+      
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&
+     family=Poppins:wght@300;400;500;600;700; 800;900&display=swap" rel="stylesheet">
+
+     <style>
+
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box; 
+            font-family: 'Poppins', sans-serif;
+            List-style: none; 
+            text-decoration: none;
+        }
+        body{
+            color: white;
+        }
+        header{
+            position:fixed;
+            right: 0;
+            top: 0;
+            z-index: 1000;
+            width: 100% ;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 33px 9%;
+            background: transparent;
+        
+        }
+        
+        
+        .logo{
+            font-size: 30px;
+            font-weight: 700;
+            color: white;
+        }
+        .navlist{
+            display: flex;
+        }
+        .navlist a{
+            color: white;
+            margin-left: 60px;
+            font-size: 15px;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: all .55s ease;
+        }
+        
+        .navlist a:hover{
+            border-bottom: 2px solid white;
+        }
+        
+        #menu-icon{
+            color: white;
+            font-size: 35px;
+            z-index: 10001;
+            cursor: pointer;
+            display: none;
+        }
+        .hero{
+            height: 100%;
+            width: 100%;
+            min-height: 100vh;
+            background: linear-gradient(245.59deg, #4d9559 0%, #38703d 28.53%, #133917 75.52%);
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .hero-img{
+            width: 800px;
+            height: auto;
+        
+        }
+        section{
+            padding: 0 19%;
+            
+        }
+        
+        .hero-text h5{
+            font-size: 14px;
+            font-weight: 400;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .hero-text h1{
+            font-family: 'Permanent Marker', cursive;
+            font-size: 90px;
+            line-height: 1;
+            color: white;
+            margin: 0 0 45px;
+        }
+        
+        .hero-text h4{
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 10px;
+            
+        }
+        
+        .hero-text p{
+            color: white;
+            font-size: 15px;
+            line-height: 1.9;
+            margin-bottom: 40px;
+            font-style: italic;
+        
+        }
+        
+        .hero-text a{
+            display:inline-block;
+            color: white;
+            background: #4d9559;
+            border: 1px solid transparent;
+            padding: 12px 30px;
+            line-height: 1.4;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 30px;
+            text-transform: uppercase;
+            transition: all .55s ease;
+        
+        }
+        
+        .hero-text a:hover{
+            background: transparent;
+            border: 1px solid white;
+            transform: translateX(8px);
+        }
+        
+        .form-section{
+            padding-top: 10px;
+            background: linear-gradient(245.59deg, #4d9559 0%, #38703d 28.53%, #133917 75.52%);
+            padding-bottom: 10px;
+            
+            
+        }
+
+        #InputData{
+            background: transparent;
+            color: white;
+            font-size: 20px;
+            font-weight: 400;
+            border-radius: 30px;
+            border: 2px solid white;
+            padding: 12px 30px;
+            flex-grow: 1;
+            margin-right: 100px;
+            height: 36vw;
+            
+        }
+        #InputData::placeholder{
+            color: #a9a9a9;
+            
+            
+        }
+        .formcl {
+            display: flex;
+    align-items: center;
+    flex-direction: column;
+        }
+        .formcl button{
+            display: inline-block;
+    color: white;
+    background: transparent;
+    background: #4d9559;
+    /* background: linear-gradient(270deg, #000000, #38703d, #4d9559); */
+    border: 2px solid white;
+    padding: 12px 30px;
+    line-height: 1.4;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 30px;
+    text-transform: uppercase;
+    transition: all .55s ease;
+    cursor: pointer;
+    width: 40vw;
+    margin-right: 7vw;
+            
+            
+
+        }
+        .formcl button:hover{
+            background: linear-gradient(270deg,#133917,#38703d,#4d9559);
+            /* border: 1px solid white; */
+            /* transform: ease; */
+            /* font-weight: 700; */
+            /* width: 200px; */
+            
+
+            
+        }
+        .text-img{
+            position: relative;
+        }
+       .form-section{
+        display: flex;
+    align-content: center;
+    align-items: center;
+       }
+       .loader-container {
+            position: fixed;
+            display: none;
+            z-index: 9999;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .loader {
+            
+            
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #4d9559;
+            width: 120px;
+            height: 120px;
+            -webkit-animation: spin 2s linear infinite; /* Safari */
+            animation: spin 2s linear infinite ;
+        }
+
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+
+      
+        
+    </style>
+        
+     
+
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">SPO-TEXT</a>
+        <ul class="navlist">
+            <li> <a href="#"> ABOUT</a></li>
+            <li> <a href="#"> HELP</a></li>
+            
+            <li> <a href="#"> CONTACT</a></li>
+
+        </ul>
+
+        <div class="bx bx-menu" id="menu-icon"></div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            
+            <h4> SpotTheOriginal with Goblin</h4>
+            <h1>SPOTEXT</h1>
+            <p>Unleash the Goblin's Eye: Your Ultimate Plagiarism Slayer!<br>#SpotTheOriginal</p>
+            <a href="#" onclick="scrollToForm()">Try Now</a>
+        </div>
+        <div class="hero-img">
+            <img src="{{ url_for('static', filename='spot-removebg-preview.png') }}">
+        </div>
+    </section>
+
+    <section  class="form-section">
+        <div class=" form-container">
+            <form action="/predict" method="POST" class="formcl" >
+                <!--<label for="InputData">Enter the Text:</label><br>-->
+                <textarea id="InputData" name="InputData" rows="25" cols="50" placeholder="Enter text to check" required></textarea><br>
+                <button type="submit" onclick="showLoader()" >Submit <div class="bx bx-search" id="search-icon"></div></button>
+                <div class="loader-container" id="loaderContainer">
+                    <div id="loader" class="loader"></div>
+                </div>
+            </form>
+        </div>
+        <div class="text-img">
+            <img src="{{ url_for('static', filename='OIG1.png') }}">
+        </div>
+
+    </section>
+    <script >
+         function scrollToForm() {
+            document.querySelector('.form-section').scrollIntoView({ behavior: 'smooth' });
+        }
+        function showLoader() {
+            document.getElementById("loaderContainer").style.display = "block";
+           
+        }
+       
+    </script>
+   
+</body>
+</html>
